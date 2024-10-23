@@ -38,7 +38,7 @@ const { v4: uuidV4 } = require('uuid');
 let connectedClients = 0;
 //we changed our express setup so we can use https
 //pass the key and cert to createServer on https
-const expressServer = https.createServer(app);
+
 // Create our socket.io server
 const PendingUser = require('./models/PendingUser');
 //create our socket.io server... it will listen to our express port

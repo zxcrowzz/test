@@ -42,6 +42,12 @@ const expressServer = https.createServer(app);
 // Create our socket.io server
 const PendingUser = require('./models/PendingUser');
 //create our socket.io server... it will listen to our express port
+const expressServer = app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server running on port ${process.env.PORT || 3000}`);
+});
+// Create our socket.io server
+
+//create our socket.io server... it will listen to our express port
 const io = socketio(expressServer,{
     cors: {
         origin: [
@@ -51,8 +57,6 @@ const io = socketio(expressServer,{
         methods: ["GET", "POST"]
     }
 });
-expressServer.listen(8181);
-
 
 //offers will contain {}
 let offers = [

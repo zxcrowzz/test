@@ -105,25 +105,35 @@ function createOfferEls(offers) {
         offerEl.classList.add('offer'); // Add a class for styling
 
         // Create the accept button
-        const newOfferEl = document.createElement('button');
-        newOfferEl.textContent = 'Accept Call';
-        newOfferEl.id = 'acceptCallButton'; // Optionally assign an ID if needed
+        const acceptButton = document.createElement('button');
+        acceptButton.textContent = 'Accept Call';
+        acceptButton.id = 'acceptCallButton'; // Optionally assign an ID if needed
 
-        newOfferEl.addEventListener('click', () => {
+        acceptButton.addEventListener('click', () => {
             answerOffer(o);
             answer1.style.display = "none"; // Hide the answer element
             offerEl.remove(); // Remove this offer element from the DOM
         });
 
-        // Append the button to the offer element and then to the container
-        offerEl.appendChild(newOfferEl);
+        // Create the deny button
+        const denyButton = document.createElement('button');
+        denyButton.textContent = 'Deny Call';
+        denyButton.id = 'denyCallButton'; // Optionally assign an ID if needed
+
+        denyButton.addEventListener('click', () => {
+            denyOffer(o); // Call the function to handle offer denial
+            offerEl.remove(); // Remove this offer element from the DOM
+        });
+
+        // Append the buttons to the offer element and then to the container
+        offerEl.appendChild(acceptButton);
+        offerEl.appendChild(denyButton);
         offersContainer.appendChild(offerEl);
     });
 
     answer1.style.display = "block"; // Make sure to show the answer element
 }
 
-}
    
 
     

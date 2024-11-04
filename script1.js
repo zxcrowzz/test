@@ -121,7 +121,7 @@ function createOfferEls(offers) {
         denyButton.id = 'denyCallButton'; // Optionally assign an ID if needed
 
         denyButton.addEventListener('click', () => {
-            denyOffer(o); // Call the function to handle offer denial
+            // Call the function to handle offer denial
             offerEl.remove(); // Remove this offer element from the DOM
         });
 

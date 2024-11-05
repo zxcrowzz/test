@@ -1,86 +1,54 @@
-#img1 {
-
-
-
-    width: 230px;
-
-
-    height: 110px;
-
-
-    position: absolute;
-
-    border-radius: 5px;
-
-   top: -1.5%;
-
-   left: 37%;
-    
-
-    
-    transition: .5s;
-
-    
+#navbar {
+    position: fixed;
+    background-color: #141414;
+    width: 100%;
+    height: 8vh; /* Scales height to viewport */
+    left: 0;
+    top: 0;
+    box-shadow: 1px 1px 5px 4px #070707;
 }
-#img1:hover{
-
-
-    scale: 1.1;
-}
-body {
-
-    background-image: url(''); /* Replace with your image path */
-    background-size: cover; /* Ensures the image covers the entire screen */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center center; /* Centers the image */
-    height: 100vh; /* Ensures the body covers the full viewport height */
-    margin: 0; 
-}
-
-
 
 #header1 {
-
-
     color: white;
-
     opacity: .6;
-
     z-index: 2;
-
     position: absolute;
-    left: 46%;
-
-    top: 1px;
-    font-size: 40px;
-
+    left: 50%;
+    top: 5px; /* Using px for consistent position relative to navbar */
+    transform: translateX(-50%); /* Centers horizontally */
+    font-size: 2.5vw; /* Scales font size proportionately */
     border: 1px solid black;
-
-    padding: 5px;
-
+    padding: 0.5vw;
     border-radius: 10px;
-
-
-    
-
     font-family: 'Courier New', Courier, monospace;
 }
 
-#navbar {
-    position:absolute;
+#img1 {
+    width: 12vw; /* Proportionate width */
+    height: 6vw; /* Proportionate height */
+    position: absolute;
+    border-radius: 5px;
+    top: 10vh; /* Adjust top position based on navbar */
+    left: 37%;
+    transition: 0.5s;
+}
 
-    background-color: #141414;
+#img1:hover {
+    transform: scale(1.1); /* Using transform instead of scale for better compatibility */
+}
 
-    width: 100%;
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #header1 {
+        font-size: 5vw; /* Increases font size on smaller screens */
+    }
 
-    height: 10%;
-
-    left: 0;
-
-    top: 0;
-    box-shadow: 1px 1px 5px 4px #070707;
-} 
-
+    #img1 {
+        top: 15vh;
+        width: 20vw; /* Makes image bigger */
+        height: 10vw;
+    }
+}
 
 body {
     display: flex;

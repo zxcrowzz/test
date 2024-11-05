@@ -11,25 +11,27 @@ body {
     position: fixed;
     background-color: #141414;
     width: 100%;
-    height: 10%; /* Slightly increased height for better fit */
-    left: 0;
+    height: 10vh; /* Using vh to make height more flexible on mobile */
     top: 0;
+    left: 0;
     box-shadow: 1px 1px 5px 4px #070707;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-aligns content */
+    padding: 0 5%; /* Adds padding on the sides for spacing */
+    overflow: hidden; /* Prevents overflow on small screens */
 }
+
 
 #header1 {
     color: white;
     opacity: .6;
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 1px;
-    transform: translateX(-50%); /* Centers text horizontally */
-    font-size: 2em; /* Fixed font size that is less affected by screen width */
+    font-size: 1.5em; /* Smaller, proportionate font size */
     border: 1px solid black;
     padding: 5px;
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap; /* Prevents text from wrapping */
 }
 
 #img1 {
@@ -47,9 +49,22 @@ body {
 }
 
 /* Media query for larger screens to avoid excessive font size */
-@media (min-width: 1200px) {
+@media (max-width: 768px) {
+    #navbar {
+        height: 12vh; /* Increases navbar height on mobile for better spacing */
+        padding: 0 3%; /* Reduces padding to fit smaller screens */
+        flex-direction: column; /* Stacks items vertically on smaller screens */
+    }
+
+    #img1 {
+        width: 10vw; /* Adjusts logo size for smaller screens */
+        max-width: 40px; /* Caps size to prevent overflow */
+        margin: 0 0 5px 0; /* Center-aligns with spacing below */
+    }
+
     #header1 {
-        font-size: 1.5em; /* Limits font scaling on very large screens */
+        font-size: 4vw; /* Scales font size for mobile */
+        padding: 3px; /* Reduces padding */
     }
 }
 

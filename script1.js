@@ -553,47 +553,34 @@ fetch('/logout', {
 
 
 function renderFriends(friends) {
-    const friendsContainer = document.getElementById('FriendsList');
-    friendsContainer.innerHTML = ''; // Clear the container
+const friendsContainer = document.getElementById('FriendsList');
+friendsContainer.innerHTML = ''; // Clear the container
 
-    friends.forEach(friend => {
-        const friendElement = document.createElement('div');
-        friendElement.classList.add("frnd");
-        friendElement.textContent = friend.name; // Assuming friend has a 'name' property
-        friendElement.addEventListener('click', () => openMessageModal(friend)); // Pass the entire friend object
-        
-        // Adding styles directly
-        friendElement.style.cursor = 'pointer';
-        friendElement.style.padding = '10px';
-        friendElement.style.margin = '5px';
-        friendElement.style.border = '1px solid black';
-        friendElement.style.borderRadius = '5px';
-        friendElement.style.backgroundColor = '#222222';
-        friendElement.style.transition = 'background-color 0.3s';
-        friendElement.style.position = 'relative'; // To position the status dot
+friends.forEach(friend => {
+    const friendElement = document.createElement('div');
+    friendElement.classList.add("frnd");
+    friendElement.textContent = friend.name; // Assuming friend has a 'name' property
+    friendElement.addEventListener('click', () => openMessageModal(friend)); // Pass the entire friend object
+    
+    // Adding styles directly
+    friendElement.style.cursor = 'pointer'; // Change cursor to pointer on hover
+    friendElement.style.padding = '10px'; // Add padding
+    friendElement.style.margin = '5px'; // Add margin between friends
+    friendElement.style.border = '1px solid black'; // Add a border
+    friendElement.style.borderRadius = '5px'; // Round the corners
+    friendElement.style.backgroundColor = '#222222'; // Background color
+    friendElement.style.transition = 'background-color 0.3s'; // Transition effect on hover
 
-        // Add hover effect using event listeners
-        friendElement.addEventListener('mouseenter', () => {
-            friendElement.style.backgroundColor = '#e0e0e0';
-        });
-        friendElement.addEventListener('mouseleave', () => {
-            friendElement.style.backgroundColor = '#222222';
-        });
-
-        // Create the online/offline status dot
-        const statusDot = document.createElement('span');
-        statusDot.style.width = '10px';
-        statusDot.style.height = '10px';
-        statusDot.style.borderRadius = '50%';
-        statusDot.style.position = 'absolute';
-        statusDot.style.top = '10px';
-        statusDot.style.right = '10px';
-        statusDot.style.backgroundColor = friend.isOnline ? 'green' : 'red'; // Green if online, red if offline
-        
-        // Append the status dot and friend element to the container
-        friendElement.appendChild(statusDot);
-        friendsContainer.appendChild(friendElement);
+    // Add hover effect using event listeners
+    friendElement.addEventListener('mouseenter', () => {
+        friendElement.style.backgroundColor = '#e0e0e0'; // Darker background on hover
     });
+    friendElement.addEventListener('mouseleave', () => {
+        friendElement.style.backgroundColor = '#222222'; // Original background
+    });
+
+    friendsContainer.appendChild(friendElement);
+});
 }
 
 

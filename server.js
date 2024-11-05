@@ -203,8 +203,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(require('cookie-parser')());
 app.set('view engine', 'ejs');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({ secret: 'secretKey', resave: false, saveUninitialized: true }));
 // Nodemailer transporter setup

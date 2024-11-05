@@ -135,7 +135,7 @@ function createOfferEls(offers) {
 }
 
    
-
+}
     
 
     
@@ -627,4 +627,3 @@ addfriendbtn.addEventListener('click', () => {
    cntr7.style.display = "block";
 
 });
-

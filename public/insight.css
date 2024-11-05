@@ -11,39 +11,35 @@ body {
     position: fixed;
     background-color: #141414;
     width: 100%;
-    height: 10%; /* Slightly increased height for better fit */
+    height: 10%; /* Adjust as needed */
     left: 0;
     top: 0;
     box-shadow: 1px 1px 5px 4px #070707;
+    display: flex; /* Allows #img1 and #header1 to sit side by side */
+    align-items: center; /* Centers them vertically within the navbar */
+    padding-left: 1%; /* Optional: adds some spacing from the left edge */
+}
+
+#img1 {
+    width: 6vw; /* Adjusts logo size responsively */
+    height: auto;
+    border-radius: 5px;
+    transition: 0.5s;
+    margin-right: 10px; /* Adds space between logo and text */
+}
+
+#img1:hover {
+    transform: scale(1.1);
 }
 
 #header1 {
     color: white;
     opacity: .6;
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 1px;
-    transform: translateX(-50%); /* Centers text horizontally */
-    font-size: 2em; /* Fixed font size that is less affected by screen width */
+    font-size: 2em;
     border: 1px solid black;
     padding: 5px;
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
-}
-
-#img1 {
-    width: 230px; /* Keep this fixed size */
-    height: 110px; /* Keep this fixed size */
-    position: absolute;
-    top: 10%; /* Adjusted position for logo within navbar */
-    left: 2%;
-    border-radius: 5px;
-    transition: 0.5s;
-}
-
-#img1:hover {
-    transform: scale(1.1);
 }
 
 /* Media query for larger screens to avoid excessive font size */

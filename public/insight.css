@@ -36,8 +36,8 @@ body {
     width: 230px; /* Keep this fixed size */
     height: 110px; /* Keep this fixed size */
     position: absolute;
-    top: -5%; /* Adjusted position for logo within navbar */
-    left: 40%;
+    top: 0%; /* Adjusted position for logo within navbar */
+    left: 37%;
     border-radius: 5px;
     transition: 0.5s;
 }

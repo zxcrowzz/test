@@ -1,3 +1,13 @@
+body {
+    background-image: url(''); /* Replace with your image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
 #navbar {
     position: fixed;
     background-color: #141414;
@@ -6,31 +16,31 @@
     left: 0;
     top: 0;
     box-shadow: 1px 1px 5px 4px #070707;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-aligns content horizontally */
 }
 
 #header1 {
     color: white;
     opacity: .6;
     z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 5px; /* Using px for consistent position relative to navbar */
-    transform: translateX(-50%); /* Centers horizontally */
-    font-size: 2.5vw; /* Scales font size proportionately */
+    position: relative;
+    font-size: 2vw; /* Smaller, proportionate font size */
     border: 1px solid black;
     padding: 0.5vw;
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
 }
 
 #img1 {
-    width: 12vw; /* Proportionate width */
-    height: 6vw; /* Proportionate height */
-    position: absolute;
+    width: 6vw; /* Smaller, proportionate size for logo */
+    height: auto; /* Keeps logo aspect ratio */
+    position: relative;
     border-radius: 5px;
-    top: 10vh; /* Adjust top position based on navbar */
-    left: 37%;
     transition: 0.5s;
+    margin-right: 10px;
 }
 
 #img1:hover {
@@ -40,25 +50,14 @@
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     #header1 {
-        font-size: 5vw; /* Increases font size on smaller screens */
+        font-size: 3.5vw; /* Increases font size on smaller screens */
     }
 
     #img1 {
-        top: 15vh;
-        width: 20vw; /* Makes image bigger */
-        height: 10vw;
+        width: 10vw; /* Scales logo proportionally */
     }
 }
 
-body {
-    background-image: url(''); /* Replace with your image path */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden; /* Prevents vertical/horizontal scroll on smaller screens */
-}
 #box1 {
     display: flex;
     flex-direction: column; /* Align children in a column */

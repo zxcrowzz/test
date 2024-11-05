@@ -27,6 +27,7 @@ const app = express();
 const socketio = require('socket.io');
 const rooms = {};
 const router = express.Router();
+const cookieParser = require('cookie-parser');
 app.use(express.static(__dirname))
 const ObjectId = require('mongoose').Types.ObjectId;
 const { v4: uuidV4 } = require('uuid');
@@ -202,7 +203,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(require('cookie-parser')());
 app.set('view engine', 'ejs');
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({ secret: 'secretKey', resave: false, saveUninitialized: true }));
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -381,7 +385,9 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render("login.ejs");
 });
 
-// Handle login with verification
+
+
+// Route for handling user login
 app.post("/login", async (req, res, next) => {
     passport.authenticate('local', async (err, user, info) => {
         if (err) {
@@ -404,14 +410,16 @@ app.post("/login", async (req, res, next) => {
                 html: `<p>Your verification code is: <strong>${verificationCode}</strong></p>`,
             });
 
+            // Set a secure cookie
+            res.cookie('user', user.username, { maxAge: 900000000, httpOnly: true, secure: true });
+
             // Redirect to the verification page after login
             req.session.userEmail1 = req.body.email;
             return res.redirect('/verify');
-
-            
         });
     })(req, res, next);
 });
+
 
 
 // Verification route

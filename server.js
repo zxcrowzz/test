@@ -21,6 +21,7 @@ const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const fs = require('fs');
+const MongoStore = require('connect-mongo');
 const https = require('https')
 const express = require('express');
 const app = express();
@@ -204,7 +205,13 @@ app.use(express.json());
 app.use(require('cookie-parser')());
 app.set('view engine', 'ejs');
 app.use(cookieParser());
-app.use(session({ secret: 'secretKey', resave: false, saveUninitialized: true }));
+app.use(session({
+    secret: 'yourSecretKey', // Replace with a secure, randomly generated string in production
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://kingcod163:Saggytits101@cluster0.rcyom.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' }) // Ensure this points to your MongoDB instance
+}));
+
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
